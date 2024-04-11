@@ -1,8 +1,9 @@
 import TelegramBot, { InlineKeyboardButton } from "node-telegram-bot-api";
+import { BotServerNamespace } from "./type/bot.type";
 import dotenv from "dotenv";
 dotenv.config();
 
-export const BotServer = async () => {
+export const BotServer: BotServerNamespace.BotServerType = async () => {
   const token = process.env.TELEGRAM_API_TOKEN as string;
 
   const bot: TelegramBot = new TelegramBot(token, { polling: true });
