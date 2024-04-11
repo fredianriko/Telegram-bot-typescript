@@ -1,8 +1,21 @@
 # Telegram bot base Typescript
 
-# TIPS: remove unused config in tsconfig, run using wsl
+---
 
+**TABLE OF CONTENT**
+[TOC]
+
+---
+
+# TIPS:
+
+## remove unused config in tsconfig after initializing, run using wsl
+
+```
 sed -i -r '/^[ \t]_\//d; /^[[:space:]]_$/d; s/\/\*(.*?)\*\///g; s/[[:blank:]]+$//' tsconfig.json
+```
+
+---
 
 # This is my first telegram bot
 
