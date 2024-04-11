@@ -3,11 +3,6 @@ import dotenv from "dotenv";
 dotenv.config();
 
 export const BotServer = async () => {
-  // where to put this?
-  //   var next = InlineKeyboardButton.builder()
-  //     .text("Next")
-  //     .callbackData("next")
-  //     .build();
   const token = process.env.TELEGRAM_API_TOKEN as string;
 
   const bot: TelegramBot = new TelegramBot(token, { polling: true });
@@ -30,7 +25,7 @@ export const BotServer = async () => {
     });
   });
 
-  //   This is just sending notification when the message receieved by the bot, and send confirmation message
+  // This is just sending notification when the message receieved by the bot, and send confirmation message
   bot.on("message", (msg) => {
     const chatId = msg.chat.id;
 

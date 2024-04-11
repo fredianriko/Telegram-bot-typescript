@@ -1,4 +1,6 @@
-# remove unused config in tsconfig, run using wsl
+# Telegram bot base Typescript
+
+# TIPS: remove unused config in tsconfig, run using wsl
 
 sed -i -r '/^[ \t]_\//d; /^[[:space:]]_$/d; s/\/\*(.*?)\*\///g; s/[[:blank:]]+$//' tsconfig.json
 
@@ -15,8 +17,6 @@ sed -i -r '/^[ \t]_\//d; /^[[:space:]]_$/d; s/\/\*(.*?)\*\///g; s/[[:blank:]]+$/
    eg:
 
    - https://api.telegram.org/bot<YOUR_BOT_TOKEN>/getMe
-   - https://api.telegram.org/bot6137662819:AAFUP8ndEz_yyK4xEnDpUnOg03xgCjVmBig/getMe -> no need for <>
+   - https://api.telegram.org/botxxxxxxxxx/getMe -> no need for <>
 
 this will show you like this [bot-created](./images/checkBot.png)
-
-6.
