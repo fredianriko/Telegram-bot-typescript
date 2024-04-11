@@ -38,6 +38,16 @@ export const BotServer = async () => {
   });
 
   console.log("Telegram Bot Server Started");
+
+  // Graceful shutdown handling
+  process.on("SIGTERM", () => {
+    console.log("SIGTERM signal received");
+    console.log("Terminating bot server");
+    bot.stopPolling().then(() => {
+      console.log("Polling stopped");
+      process.exit(0);
+    });
+  });
 };
 
 BotServer();
