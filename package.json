@@ -4,6 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "build": "tsc",
+    "server:dev" : "ts-node-dev ./src/http/restapi",
     "dev": "ts-node-dev ./src/index"
   },
   "keywords": [],

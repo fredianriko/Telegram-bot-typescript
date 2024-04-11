@@ -1,9 +1,13 @@
-import TelegramBot, { InlineKeyboardButton } from "node-telegram-bot-api";
+import TelegramBot from "node-telegram-bot-api";
 import { BotServerNamespace } from "./type/bot.type";
 import dotenv from "dotenv";
 dotenv.config();
 
 export const BotServer: BotServerNamespace.BotServerType = async () => {
+  //   Error checking
+  if (!process.env.TELGRAM_API_TOKEN)
+    throw new Error("Telegram bot api token not provided");
+
   const token = process.env.TELEGRAM_API_TOKEN as string;
 
   const bot: TelegramBot = new TelegramBot(token, { polling: true });
@@ -12,10 +16,11 @@ export const BotServer: BotServerNamespace.BotServerType = async () => {
   // and directly send back the same text you send
   bot.onText(/\/\echo (.+)/, (msg, match) => {
     const chatId = msg.chat.id;
+    // check the text after "/echo <text>"
     const resp = match ? match[1] : "";
 
     // showing s
-    bot.sendMessage(chatId, "tai lu", {
+    bot.sendMessage(chatId, resp, {
       reply_markup: {
         keyboard: [
           [{ text: "Sample text" }, { text: "Second sample" }],
@@ -44,6 +49,8 @@ export const BotServer: BotServerNamespace.BotServerType = async () => {
       process.exit(0);
     });
   });
+
+  return;
 };
 
 BotServer();
